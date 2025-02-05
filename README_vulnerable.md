@@ -37,14 +37,37 @@ sqlite3 app.db "INSERT INTO users (username, password) VALUES ('admin', 'passwor
 
 ---
 
+## 🚨 Hardcoded Secrets (Intentionally Vulnerable) 🚨
+
+```sh
+export SECRET_KEY="hardcoded_secret_key_123"
+export AWS_ACCESS_KEY="AKIAEXAMPLE1234567890"
+export AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+export DATABASE_PASSWORD="SuperSecretDBPassword"
+```
+
+These secrets are hardcoded inside the environment configuration file:
+
+```ini
+[database]
+username = "admin"
+password = "P@ssw0rd123"
+
+[api_keys]
+google_api_key = "AIzaSyExampleFakeKey123456789"
+stripe_api_key = "sk_test_51Lwxyz1234567890abcdef1234567890"
+```
+
+**❌ WARNING: These credentials are exposed in plaintext! Use a secure secrets manager instead.**
+
+---
+
 ## 🌍 Running the Application
 
 Start the Flask server:
 
 ```sh
-export SECRET_KEY="my_secret_key"
-export DATABASE_URL="sqlite:///app.db"
-python app.py
+python app.py --debug
 ```
 
 ---
@@ -95,3 +118,30 @@ This app is **intentionally vulnerable** for testing purposes. Known issues incl
 ⚠ **Do not deploy this in production!**
 
 ---
+
+## 🛡 How to Scan for Vulnerabilities
+
+Use these security tools:
+
+1️⃣ **Bandit** (Python security scanner)
+```sh
+pip install bandit
+bandit -r .
+```
+
+2️⃣ **TruffleHog** (Detect hardcoded credentials)
+```sh
+pip install truffleHog
+trufflehog --entropy=True .
+```
+
+3️⃣ **OWASP ZAP** (Scan for web vulnerabilities)
+```sh
+zap.sh -quickurl http://127.0.0.1:5000
+```
+
+---
+
+## 🚀 Disclaimer
+
+This project is for educational and security research purposes only. The developers take no responsibility for any misuse.
