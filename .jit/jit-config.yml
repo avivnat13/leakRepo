@@ -2,3 +2,12 @@ folders:
   - path: /
     exclude:
       - exclude/*
+
+
+resource_management:
+  exclude:
+    plan_items:
+      secret-detection:
+        resources:
+          - name: Run Gitleaks
+            # type: <type [OPTIONAL]>
