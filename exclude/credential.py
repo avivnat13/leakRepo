@@ -1,7 +1,9 @@
 import os
 import base64
 import json
+from dotenv import load_dotenv
 
+print("hella")
 # Hardcoded secrets (Vulnerability)
 API_KEY = "sk_test_1234567890abcdef"  # Mock Stripe API Key
 API_KEY1 = "sk_test_1234567890abcdef"  # Mock Stripe API Key
