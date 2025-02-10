@@ -9,7 +9,7 @@ DB_PASSWORD = "SuperSecret123!"  # Mock Database Password
 SECRET_KEY = "MyS3cr3tK3y"  # Mock Flask Secret Key
 AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"  # Mock AWS Access Key
 AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"  # Mock AWS Secret Key
-# print("hello")
+print("hello")
 # Simulate storing secrets in an insecure JSON file
 mock_secrets = {
     "api_key": API_KEY,
