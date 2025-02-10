@@ -1,7 +1,6 @@
 import os
 import base64
 import json
-
 from dotenv import load_dotenv
 
 # Hardcoded secrets (Vulnerability)
