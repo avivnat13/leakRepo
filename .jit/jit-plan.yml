@@ -29,7 +29,7 @@ override:
           steps:
             # here define the actual steps from the workflow-<workflow_name> that u want to replace 
             - name: Run semgrep python
-            - uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-            - with:
+              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+              with:
                 args: some-deadly-args --vibe vacay --name Thailand
       
