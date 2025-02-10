@@ -16,7 +16,7 @@ items:
 
 override:
   workflows:
-    the actual workflow that i want to override
+    # the actual workflow that i want to override
     sast:
       jobs:
         static-code-analysis-python-semgrep:
@@ -25,12 +25,12 @@ override:
             uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
             with:
               args: some-deadly-args --vibe vacay --name Thailand
-        secret-detection:
-          jobs:
-            secret-detection:
-              steps:
-                - name: Run Gitleaks
-                  uses: ${{ context.config.custom_registry || registry.jit.io }}/control-gitleaks-alpine:latest
-                  with:
-                    args: some-deadly-args --vibe vacay --name Thailand
-                  # args: detect --config $GITLEAKS_CONFIG_FILE_PATH --source ${WORK_DIR:-.} -v --report-format json --report-path $REPORT_FILE --redact --no-git --exit-code 0
+      secret-detection:
+        jobs:
+          secret-detection:
+            steps:
+              - name: Run Gitleaks
+                uses: ${{ context.config.custom_registry || registry.jit.io }}/control-gitleaks-alpine:latest
+                with:
+                  args: some-deadly-args --vibe vacay --name Thailand
+                # args: detect --config $GITLEAKS_CONFIG_FILE_PATH --source ${WORK_DIR:-.} -v --report-format json --report-path $REPORT_FILE --redact --no-git --exit-code 0
