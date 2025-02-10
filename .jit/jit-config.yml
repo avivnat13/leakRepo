@@ -7,7 +7,7 @@ folders:
 resource_management:
   exclude:
     plan_items:
-      secret-detection:
+      item-secret-detection:
         resources:
-          - name: Run Gitleaks
+          - name: leakRepo
             # type: <type [OPTIONAL]>
