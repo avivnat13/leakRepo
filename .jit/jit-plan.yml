@@ -17,14 +17,14 @@ items:
 override:
   workflows:
     # the actual workflow that i want to override
-    sast:
-      jobs:
-        static-code-analysis-python-semgrep:
-          steps:
-          - name: Run semgrep python
-            uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-            with:
-              args: some-deadly-args --vibe vacay --name Thailand
+    # sast:
+    #   jobs:
+    #     static-code-analysis-python-semgrep:
+    #       steps:
+    #       - name: Run semgrep python
+    #         uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+    #         with:
+    #           args: some-deadly-args --vibe vacay --name Thailand
       secret-detection:
         jobs:
           secret-detection:
