@@ -1,5 +1,4 @@
 folders:
-  - path: /code/exclude/
+  - path: /
     exclude:
-      - /code/exclude/*
-
+      - /exclude/*
