@@ -11,18 +11,16 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
 
 override:
   workflows:
-  # the actual workflow that i want to override
     sast:
       jobs:
-        # here define the actual plan-item/ job-name that u want to override
         static-code-analysis-python-semgrep:
           steps:
-            # here define the actual steps from the workflow-<workflow_name> that u want to replace 
-            - name: Run semgrep python
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: some-deadly-args --vibe vacay --name Thailand
+          - name: Run semgrep python
+            uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+            with:
+              args: some-deadly-args --vibe vacay --name Thailand
