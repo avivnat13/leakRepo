@@ -15,7 +15,7 @@ items:
 
 override:
   workflows:
-  # the actual workflow that i want to override
+    # the actual workflow that i want to override
     sast:
       jobs:
         # here define the actual plan-item/ job-name that u want to override
