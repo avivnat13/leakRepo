@@ -1,7 +1,5 @@
 folders:
-  - path: /exclude
+  - path: 
     exclude:
-      - /*
-#   # - path: /foo
-#     # exclude:
-#       # - /example1-dir
+      - /exclude
+
