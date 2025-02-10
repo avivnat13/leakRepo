@@ -4,6 +4,7 @@ import json
 
 # Hardcoded secrets (Vulnerability)
 API_KEY = "sk_test_1234567890abcdef"  # Mock Stripe API Key
+API_KEY1 = "sk_test_1234567890abcdef"  # Mock Stripe API Key
 DB_PASSWORD = "SuperSecret123!"  # Mock Database Password
 SECRET_KEY = "MyS3cr3tK3y"  # Mock Flask Secret Key
 AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"  # Mock AWS Access Key
