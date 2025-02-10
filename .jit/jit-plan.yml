@@ -26,3 +26,15 @@ override:
             with:
               args: some-deadly-args --vibe vacay --name Thailand
 
+# override:
+#   workflows:
+#     # the actual workflow that i want to override
+#     secret-detection:
+#       jobs:
+#         secret-detection:
+#           steps:
+#           - name: Run Gitleaks
+#             uses: ${{ context.config.custom_registry || registry.jit.io }}/control-gitleaks-alpine:latest
+#             with:
+#               args: some-deadly-args --vibe vacay --name Thailand
+      
