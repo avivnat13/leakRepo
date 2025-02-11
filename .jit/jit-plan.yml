@@ -24,7 +24,8 @@ override:
         static-code-analysis-python-semgrep:
           steps:
             - name: Run semgrep python
-              uses: ${{ context.config.custom_registry || 'registry.jit.io' }}/control-semgrep-alpine:sc-28947-semgrep-control-deprecate-jit-transformer
+              uses: ${{ context.config.custom_registry || 'ghcr.io/jitsecurity-controls' }}/control-semgrep-alpine:sc-28947-semgrep-control-deprecate-jit-transformer
+
               # with:
               #   args: some-deadly-args --vibe vacay --name Thailand
 
