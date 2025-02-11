@@ -1,13 +1,13 @@
-folders:
-  - path: /
-    exclude:
-      - exclude/*
+# folders:
+#   - path: /
+#     exclude:
+#       - exclude/*
 
 
-resource_management:
-  exclude:
-    plan_items:
-      item-secret-detection:
-        resources:
-          - name: leakRepo
-            # type: <type [OPTIONAL]>
+# resource_management:
+#   exclude:
+#     plan_items:
+#       item-secret-detection:
+#         resources:
+#           - name: leakRepo
+#             # type: <type [OPTIONAL]>
