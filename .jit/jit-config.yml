@@ -3,11 +3,3 @@ folders:
     exclude:
       - exclude/*
 
-
-# resource_management:
-#   exclude:
-#     plan_items:
-#       item-secret-detection:
-#         resources:
-#           - name: leakRepo
-#             # type: <type [OPTIONAL]>
