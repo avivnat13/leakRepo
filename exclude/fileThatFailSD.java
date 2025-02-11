@@ -6,6 +6,7 @@ public class InsecureSecrets {
     // 🚨 Hardcoded Database Credentials (Security Risk)
     private static final String DB_USERNAME = "admin";
     private static final String DB_PASSWORD = "SuperSecret123";
+    // private static final String DB_PASSWORD = "SuperSecret123";
 
     // 🚨 Hardcoded JWT Secret Key
     private static final String JWT_SECRET = "mySuperSecretJWTKeyDontShare";
