@@ -1,5 +1,5 @@
 public class InsecureSecrets {
-    
+    // wassup
     // 🚨 Hardcoded API Keys (Security Risk)
     private static final String AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE";
     private static final String AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
