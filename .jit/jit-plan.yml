@@ -15,18 +15,18 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
 
-# # In this case, the secret detection and the SAST will not work because of the override.
-# override:
-#   workflows:
-#     # The actual workflow that I want to override
-#     sast:
-#       jobs:
-#         static-code-analysis-python-semgrep:
-#           steps:
-#             - name: Run semgrep python
-#               uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-#               with:
-#                 args: some-deadly-args --vibe vacay --name Thailand
+# In this case, the secret detection and the SAST will not work because of the override.
+override:
+  workflows:
+    # The actual workflow that I want to override
+    sast:
+      jobs:
+        static-code-analysis-python-semgrep:
+          steps:
+            - name: Run semgrep python
+              uses: ghcr.io/jitsecurity-controls/control-semgrep-alpine:sc-28947-semgrep-control-deprecate-jit-transformer
+              # with:
+              #   args: some-deadly-args --vibe vacay --name Thailand
 
 #     secret-detection:
 #       jobs:
