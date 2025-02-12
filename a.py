@@ -1,4 +1,3 @@
-import os 
 import yaml
 
 def exploitable_yaml_load(**kwargs):
