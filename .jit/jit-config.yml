@@ -1,5 +1,11 @@
+applications:
+- api_domain: api.individual.githubcopilot.com
+  application_name: myapp
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: https://www.colman.ac.il/
+  type: web
 folders:
-  - path: /
-    exclude:
-      - exclude/*
-
+- exclude:
+  - exclude/*
+  path: /
