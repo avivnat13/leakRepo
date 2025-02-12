@@ -12,28 +12,17 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Scan your web application for vulnerabilities
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-
-# In this case, the secret detection and the SAST will not work because of the override.
+      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
 override:
   workflows:
-    # The actual workflow that I want to override
     sast:
       jobs:
         static-code-analysis-python-semgrep:
           steps:
             - name: Run semgrep python
-              uses: ${{ context.config.custom_registry || 'registry.jit.io' }}/control-semgrep-alpine:sc-28947-semgrep-control-deprecate-jit-transformer
-
-              # with:
-              #   args: some-deadly-args --vibe vacay --name Thailand
-
-#     secret-detection:
-#       jobs:
-#         secret-detection:
-#           steps:
-#             - name: Run Gitleaks
-#               uses: ${{ context.config.custom_registry || registry.jit.io }}/control-gitleaks-alpine:latest
-#               with:
-#                 args: some-deadly-args --vibe vacay --name Thailand
+              uses: >-
+                ${{ context.config.custom_registry || &#39;registry.jit.io&#39;
+                }}/control-semgrep-alpine:sc-28947-semgrep-control-deprecate-jit-transformer
