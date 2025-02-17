@@ -24,4 +24,4 @@ override:
           steps:
             - name: Run semgrep python
               uses: >-
-                ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:main
+                ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:sc-28947-semgrep-control-deprecate-jit-transformer
