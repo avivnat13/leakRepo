@@ -12,16 +12,31 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+
 override:
   workflows:
     sast:
       jobs:
         static-code-analysis-python-semgrep:
           steps:
-            - name: Run semgrep python
+            - name: Run Semgrep for Python
               uses: >-
                 ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:main
+
+        static-code-analysis-js:
+          steps:
+            - name: Run Semgrep for JavaScript and TypeScript
+              uses: >-
+                ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+              with:
+                args: --json --config=/semgrep-ts-config.yml --metrics=off ${WORK_DIR:-.}
+              tags:
+                security_tool: Semgrep
+                links:
+                  github: https://github.com/jitsecurity-controls/jit-semgrep-code-scanning-control
+                  security_tool: https://github.com/returntocorp/semgrep
