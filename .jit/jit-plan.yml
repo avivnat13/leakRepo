@@ -33,10 +33,4 @@ override:
             - name: Run Semgrep for JavaScript and TypeScript
               uses: >-
                 ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --json --config=/semgrep-ts-config.yml --metrics=off ${WORK_DIR:-.}
-              tags:
-                security_tool: Semgrep
-                links:
-                  github: https://github.com/jitsecurity-controls/jit-semgrep-code-scanning-control
-                  security_tool: https://github.com/returntocorp/semgrep
+             
