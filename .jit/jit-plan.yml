@@ -44,6 +44,6 @@ override:
           enabled: true
           steps:
             - name: Run Semgrep Code Pro Tier
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:sc-29159-semgrep-pro-control-remove-semgrep-oss-functionality
+              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-pro-alpine:sc-29159-semgrep-pro-control-remove-semgrep-oss-functionality
               
               
