@@ -16,15 +16,29 @@ override:
   workflows:
     sast:
       jobs:
+        static-code-analysis-csharp:
+          enabled: false
+        static-code-analysis-go:
+          enabled: false
+        static-code-analysis-java:
+          enabled: false
         static-code-analysis-js:
-          steps:
-            - name: Run Semgrep for JavaScript and TypeScript
-              uses: >-
-                ${{ context.config.custom_registry || registry.jit.io
-                }}/control-semgrep-alpine:latest
+          enabled: false
+        static-code-analysis-kotlin:
+          enabled: false
+        static-code-analysis-python:
+          enabled: false
         static-code-analysis-python-semgrep:
-          steps:
-            - name: Run Semgrep for Python
-              uses: >-
-                ${{ context.config.custom_registry || registry.jit.io
-                }}/control-semgrep-alpine:main
+          enabled: false
+        static-code-analysis-rust:
+          enabled: false
+        static-code-analysis-scala:
+          enabled: false
+        static-code-analysis-swift:
+          enabled: false
+        static-code-analysis-ruby:
+          enabled: false
+        static-code-analysis-c-cpp:
+          enabled: false
+        static-code-analysis-semgrep-pro:
+          enabled: true
