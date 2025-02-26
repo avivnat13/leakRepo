@@ -11,19 +11,22 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-
+  - name: Scan your web application for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
 override:
   workflows:
     sast:
       jobs:
-        static-code-analysis-semgrep-pro:
-        default: true
-          steps:
-            - name: Run Semgrep Code Pro Tier
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-pro-alpine:sc-29159-semgrep-pro-control-remove-semgrep-oss-functionality
-              with:
-                args: ci --pro --json --metrics=off
-                env:
-                  SEMGREP_APP_TOKEN: ${{ jit_secrets.SEMGREP_TOKEN }}
         static-code-analysis-js:
-          default: false
+          steps:
+            - name: Run Semgrep for JavaScript and TypeScript
+              uses: >-
+                ${{ context.config.custom_registry || registry.jit.io
+                }}/control-semgrep-alpine:latest
+        static-code-analysis-python-semgrep:
+          steps:
+            - name: Run Semgrep for Python
+              uses: >-
+                ${{ context.config.custom_registry || registry.jit.io
+                }}/control-semgrep-alpine:main
