@@ -1,3 +1,4 @@
+const el1 = element.innerHTML;
 const el = element.innerHTML;
 
 function bad1(userInput) {
