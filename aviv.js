@@ -1,4 +1,5 @@
 const el = element.innerHTML;
+const el13 = element.innerHTML;
 
 function bad1(userInput) {
 // ruleid: insecure-document-method
