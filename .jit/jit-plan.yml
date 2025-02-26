@@ -23,6 +23,7 @@ override:
     sast:
       jobs:
         static-code-analysis-semgrep-pro:
+        default: true
           steps:
             - name: Run Semgrep Code Pro Tier
               uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-pro-alpine:sc-29159-semgrep-pro-control-remove-semgrep-oss-functionality
@@ -30,68 +31,68 @@ override:
                 args: ci --pro --json --metrics=off
                 env:
                   SEMGREP_APP_TOKEN: ${{ jit_secrets.SEMGREP_TOKEN }}
-        static-code-analysis-python-semgrep:
-          steps:
-            - name: Run Semgrep for Python
-              uses: >-
-                ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:main
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-python-semgrep:
+        #   steps:
+        #     - name: Run Semgrep for Python
+        #       uses: >-
+        #         ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:main
+        #       with:
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
         
         static-code-analysis-js:
           default: false
-          steps:
-            - name: Run Semgrep for JavaScript and TypeScript
-              uses: >-
-                ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+          # steps:
+          #   - name: Run Semgrep for JavaScript and TypeScript
+          #     uses: >-
+          #       ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+          #     with:
+          #       args: --config auto > /dev/null 2>&1 # sending the output to no-where
         
-        static-code-analysis-java:
-          steps:
-            - name: Run semgrep java
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:      
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-java:
+        #   steps:
+        #     - name: Run semgrep java
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+        #       with:      
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
         
-        static-code-analysis-scala:
-          steps: 
-            - name: Run semgrep scala
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-scala:
+        #   steps: 
+        #     - name: Run semgrep scala
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+        #       with:
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
 
-        static-code-analysis-go:
-          steps:
-            - name: Run Go
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-gosec-alpine:latest
-              with:
-                args: > /dev/null 2>&1
+        # static-code-analysis-go:
+        #   steps:
+        #     - name: Run Go
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-gosec-alpine:latest
+        #       with:
+        #         args: > /dev/null 2>&1
 
-        static-code-analysis-kotlin:
-          steps: 
-            - name: Run semgrep kotlin
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-kotlin:
+        #   steps: 
+        #     - name: Run semgrep kotlin
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+        #       with:
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
         
-        static-code-analysis-csharp:
-          steps: 
-            - name: Run semgrep csharp
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-csharp:
+        #   steps: 
+        #     - name: Run semgrep csharp
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+        #       with:
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
 
-        static-code-analysis-swift:
-          steps:   
-            - name: Run semgrep swift
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-swift:
+        #   steps:   
+        #     - name: Run semgrep swift
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+        #       with:
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
         
-        static-code-analysis-rust:
-          steps:
-            - name: Run semgrep rust
-              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
-              with:
-                args: --config auto > /dev/null 2>&1 # sending the output to no-where
+        # static-code-analysis-rust:
+        #   steps:
+        #     - name: Run semgrep rust
+        #       uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
+        #       with:
+        #         args: --config auto > /dev/null 2>&1 # sending the output to no-where
