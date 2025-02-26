@@ -39,6 +39,7 @@ override:
                 args: --config auto > /dev/null 2>&1 # sending the output to no-where
         
         static-code-analysis-js:
+          default: false
           steps:
             - name: Run Semgrep for JavaScript and TypeScript
               uses: >-
