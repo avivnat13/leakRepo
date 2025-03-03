@@ -18,6 +18,7 @@ override:
       jobs:
         static-code-analysis-semgrep-pro:
           enabled: true
+          uses: ${{ context.config.custom_registry || registry.jit.io }}/control-semgrep-alpine:latest
         static-code-analysis:
           c-cpp:
             enabled: false
