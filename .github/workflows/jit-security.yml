@@ -18,4 +18,4 @@ jobs:
     timeout-minutes: ${{ fromJSON(github.event.inputs.client_payload).payload.runner_setup.timeout_minutes }}
     steps:
     - name: ${{ fromJSON( inputs.client_payload ).payload.workflow_job_name }}
-      uses: jitsecurity-controls/jit-github-action@latest
+      uses: jitsecurity-controls/jit-github-action@main
