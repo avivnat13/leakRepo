@@ -14,6 +14,12 @@ override:
       jobs:
         static-code-analysis-c-cpp:
           enabled: false
+        static-code-analysis-checkmarx:
+          enabled: true
+          steps:
+          - name: Run Checkmarx SAST
+            # uses: ${{ context.config.custom_registry || registry.jit.io }}/control-checkmarx-alpine:sc-29498-jit-checkmarx-control-apply-all-changes-from
+            uses: ${{ context.config.custom_registry || registry.jit.io }}/control-checkmarx-alpine:latest
         static-code-analysis-csharp:
           enabled: false
         static-code-analysis-go:
@@ -35,7 +41,7 @@ override:
         static-code-analysis-scala:
           enabled: false
         static-code-analysis-semgrep-pro:
-          enabled: true
+          enabled: false
         static-code-analysis-swift:
           enabled: false
 owners:
