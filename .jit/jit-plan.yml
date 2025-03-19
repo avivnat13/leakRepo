@@ -15,9 +15,26 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+
 override:
   workflows:
+    iac-misconfiguration-detection:
+      jobs:
+        checkov-iac-misconfig-detection:
+          enabled: true
+        iac-misconfig-detection-cloudformation:
+          enabled: false
+        iac-misconfig-detection-kubernetes:
+          enabled: false
+        iac-misconfig-detection-pulumi:
+          enabled: false
+        iac-misconfig-detection-serverless:
+          enabled: false
+        iac-misconfig-detection-terraform:
+          enabled: false
+
     sast:
       jobs:
         static-code-analysis-c-cpp:
@@ -27,8 +44,7 @@ override:
           steps:
             - name: Run Checkmarx SAST
               uses: >-
-                ${{ context.config.custom_registry || registry.jit.io
-                }}/control-checkmarx-alpine:latest
+                ${{ context.config.custom_registry || registry.jit.io }}/control-checkmarx-alpine:latest
         static-code-analysis-csharp:
           enabled: false
         static-code-analysis-go:
