@@ -8,16 +8,17 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: Analyze for Jit Context
-    uses: >-
-      jitsecurity-controls/jit-plans/items/jit-context/item-jit-context-analysis.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan code for hard-coded secrets
+  - name: Analyze for Jit Context
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-
+      jitsecurity-controls/jit-plans/items/jit-context/item-jit-context-analysis.yml@latest
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
 override:
   workflows:
     iac-misconfiguration-detection:
@@ -34,7 +35,6 @@ override:
           enabled: false
         iac-misconfig-detection-terraform:
           enabled: false
-
     sast:
       jobs:
         static-code-analysis-c-cpp:
@@ -44,7 +44,8 @@ override:
           steps:
             - name: Run Checkmarx SAST
               uses: >-
-                ${{ context.config.custom_registry || registry.jit.io }}/control-checkmarx-alpine:latest
+                ${{ context.config.custom_registry || registry.jit.io
+                }}/control-checkmarx-alpine:latest
         static-code-analysis-csharp:
           enabled: false
         static-code-analysis-go:
